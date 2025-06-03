@@ -23,7 +23,7 @@ spec:
           type: RuntimeDefault
       containers:
         - name: whatami
-          image: ghcr.io/traefik/whatami:latest
+          image: ghcr.io/traefik/whoami:latest
           securityContext:
             allowPrivilegeEscalation: false
             readOnlyRootFilesystem: true
