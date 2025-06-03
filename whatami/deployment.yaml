@@ -1,17 +1,17 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: whoami
+  name: whatami
   namespace: gjermund-spk
 spec:
   replicas: 3
   selector:
     matchLabels:
-      app: whoami
+      app: whatami
   template:
     metadata:
       labels:
-        app: whoami
+        app: whatami
     spec:
       securityContext:
         runAsNonRoot: true
@@ -22,8 +22,8 @@ spec:
         seccompProfile:
           type: RuntimeDefault
       containers:
-        - name: whoami
-          image: ghcr.io/traefik/whoami:latest
+        - name: whatami
+          image: ghcr.io/traefik/whatami:latest
           securityContext:
             allowPrivilegeEscalation: false
             readOnlyRootFilesystem: true
@@ -34,7 +34,7 @@ spec:
               containerPort: 8080
           envFrom:
             - configMapRef:
-                name: whoami-config
+                name: whatami-config
           resources:
             requests:
               cpu: 10m
